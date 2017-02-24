@@ -38,7 +38,7 @@ if (nbTour === 6){
     console.log("Perdu ! Vous n'avez plus de tours.")
 }
 
-// Si le nombre de tour est inférieur a 6 alors gagné
+// Si le nombre de tour est inférieur à 6 et que la boucle est finie alors gagné
 
     else {
         alert("Bravo ! Vous avez réussi en " + nbTour + " essai(s)")
