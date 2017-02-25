@@ -1,4 +1,4 @@
-/*
+
 
 function direBonjour() {
     console.log("Bonjour !");
@@ -30,4 +30,3 @@ function maFonction(param1, param2, ...) {
 // param1 reçoit la valeur de arg1, param2 la valeur de arg2, ...
 maFonction(arg1, arg2, ...);
            
-*/
