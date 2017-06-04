@@ -1,8 +1,4 @@
-/**
- * Created by Anthony on 31/05/2017.
- */
-
-console.log("Bienvenue dans le gestionnaire de contacts");
+/** Created by Anthony on 31/05/2017.**/
 
 //DESCRIPTION
 var contacts = [];
@@ -13,7 +9,7 @@ var contact = {
     },
     decrire : function (){
         var description =  "Nom: " + this.nom + ", prenom : " + this.prenom;
-        return description
+        return description;
     },
 
     ajout : function(){
@@ -22,40 +18,48 @@ var contact = {
         var ajoutPrenom = prompt("Ajoutez le prénom de contact");
         contact.init(ajoutNom, ajoutPrenom);
         contacts.push(contact);
-        console.log("Le contact à bien été ajouté.")
+        console.log("Le contact à bien été ajouté.");
+    },
+    menu : function () {
+        console.log("1 : Lister les contacts");
+        console.log("2 : Ajouter un contact");
+        console.log("0 : Quitter");
+    },
+    multidecrire : function() {
+        contacts.forEach(function (contact) {
+            console.log(contact.decrire());
+        });
     }
 
 };
 
+console.log("Bienvenue dans le gestionnaire de contacts");
+contact.menu();
+
 var contact1 = Object.create(contact);
 contact1.init("Lévisse","Carole");
-
 var contact2 = Object.create(contact);
 contact2.init("Nelsonne", "Mélodie");
 
 contacts.push(contact1);
 contacts.push(contact2);
 
+var choix = "";
 
 //Menu
-var choix = "";
-while (choix !== "0"){
-    console.log("1 : Lister les contacts");
-    console.log("2 : Ajouter un contact");
-    console.log("0 : Quitter");
+while (choix !== "0") {
     choix = prompt("Choissisez une option");
-
-    if (choix = "1"){
-        contacts.forEach(function (contact){
-            console.log(contact.decrire());
-        })
-    }else if (choix = "2"){
+    if (choix === "1") {
+        contact.multidecrire();
+        contact.menu();
+    } else if (choix === "2") {
         contact.ajout();
-    }else {
-        console.log("Cette valeur m'est inconnue...")
+        contact.menu();
+
+    } else if (choix === "0") {
+        console.log("Au revoir !");
+    } else {
+        console.log("Cette valeur m'est inconnue...");
+        contact.menu();
     }
 }
-
-console.log("Au revoir !");
-
-/* problème : while exécute le choix 1 tout le temps peu importe le choix...*/
